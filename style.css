@@ -1,51 +1,125 @@
-body, html {
-    height: 100%;
-    margin: 0;
-}
-
-.video-container {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-}
-
-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 1;
+/* Custom CSS styles for your background colors */
+.image-container {
+    background-color: rgba(51, 51, 51, 0.8); /* Dark ash with 80% opacity */
 }
 
 .step {
-    display: none;
+    background-color: transparent; /* Transparent background for the step */
 }
 
-.step.active {
+.step input[type="text"],
+.step input[type="email"],
+.step select {
+    background-color: transparent; /* Transparent input fields */
+    border: none; /* Remove border */
+    border-bottom: 1px solid #CCC; /* Add a bottom line */
+    padding: 0.5rem 1rem; /* Adjust padding for better visual */
+    color: #FFF; /* Maintain white text color */
+    background-clip: padding-box; /* Prevent white background during auto-suggestions */
+}
+
+.step input[type="text"]::placeholder,
+.step input[type="email"]::placeholder,
+.step select::placeholder {
+    color: #FFF; /* Set placeholder color to white */
+}
+
+.step label {
+    background-color: transparent; /* Transparent background for the labels */
+    padding: 0.5rem 1rem; /* Adjust padding for better visual */
+}
+
+.step button {
+    background-color: #474643; /* Dark gold color for the button background */
+    border: 2px solid #474643; /* Dark gold outline for the button */
+    padding: 0.5rem 1rem; /* Adjust padding for better visual */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    position: relative; /* Add position relative for pseudo-element */
+}
+
+.step button:hover {
+    background-color: #3a3836;
+    border: 2px solid #af7614;
+}
+
+.step.hidden[data-step="9"] h2 {
+    color: #af7614;
+}
+
+.step.hidden[data-step="9"] p {
+    color: #FFF; 
+}
+
+.step button {
+    border-radius: 0.25rem; /* Rounded button edges */
+    color: #FFF; /* White text color */
+}
+
+/* Remove default outline on input fields when focused */
+.step input:focus,
+.step select:focus {
+    outline: none;
+    box-shadow: none; /* Remove blue glow when focused */
+}
+
+/* Remove the small rounded rectangle beneath the button */
+.step button::after {
+    content: '';
     display: block;
+    height: 5px;
+    background-color: #af7614; /* Dark gold color for the line */
+    position: absolute; /* Position the line at the bottom of the button */
+    bottom: -25px; /* Adjust position to move the line below the button */
+    left: 0; /* Align the line with the button's left edge */
+    width: 100%; /* Make the line span the width of the button */
+    border-radius: 0.25rem; /* Make the line rounded */
 }
 
-.progress {
-    width: 100%;
-    height: 10px;
-    background-color: #f1f1f1;
-    margin-top: 20px;
-}
-
+/* Adjust position of the line to be very close to the end of the glass background */
 .progress-bar {
-    height: 100%;
-    background-color: #007bff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+}
+
+.progress-bar .progress {
+    height: 2px;
+    background-color: #e69c09; /* Dark gold color for the progress bar */
+    border-radius: 1rem; /* Make the progress bar rounded */
+}
+
+/* Prevent white background during auto-suggestions */
+.step input[type="text"]::-webkit-input-placeholder,
+.step input[type="email"]::-webkit-input-placeholder,
+.step select::-webkit-input-placeholder {
+    color: #FFF; /* Set placeholder color to white */
+    background-color: transparent; /* Set background to transparent */
+}
+
+/* Custom dropdown styles */
+.step select {
+    appearance: none; /* Remove default arrow */
+    background-color: #474643; /* Dark ash color for the dropdown */
+    padding: 0.5rem 2rem 0.5rem 1rem; /* Adjust padding for better visual */
+    border-radius: 0.25rem; /* Rounded border */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gold' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>"); /* Gold dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5rem;
+    color: #FFF; /* Set text color to white */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.step select::-ms-expand {
+    display: none; /* Remove default arrow in IE11 */
+}
+
+/* Custom dropdown options */
+.step select option {
+    background-color: #474643; /* Dark ash color for options */
+    color: #FFF; /* Set text color to white */
+    padding: 0.5rem;
 }
