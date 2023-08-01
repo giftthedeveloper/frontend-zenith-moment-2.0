@@ -23,23 +23,32 @@
             border: none; /* Remove border */
             border-bottom: 1px solid #CCC; /* Add a bottom line */
             padding: 0.5rem 1rem; /* Adjust padding for better visual */
+            color: #FFF; /* Maintain white text color */
+            background-clip: padding-box; /* Prevent white background during auto-suggestions */
+        }
+
+        .step input[type="text"]::placeholder,
+        .step input[type="email"]::placeholder,
+        .step select::placeholder {
+            color: #FFF; /* Set placeholder color to white */
         }
 
         .step label {
             background-color: transparent; /* Transparent background for the labels */
             padding: 0.5rem 1rem; /* Adjust padding for better visual */
         }
-
+       
         .step button {
-            background-color: #e69c09; /* Dark gold color for the button background */
-            border: 2px solid #c28419; /* Dark gold outline for the button */
+            background-color: #474643; /* Dark gold color for the button background */
+            border: 2px solid #474643; /* Dark gold outline for the button */
             padding: 0.5rem 1rem; /* Adjust padding for better visual */
             transition: background-color 0.3s ease; /* Smooth transition on hover */
             position: relative; /* Add position relative for pseudo-element */
         }
 
         .step button:hover {
-            background-color: #3a3836; /* Darker gold color on hover */
+            background-color: #3a3836;
+            border: 2px solid #af7614;
         }
 
         /* Additional styles for a more modern look */
@@ -52,7 +61,7 @@
         .step input:focus,
         .step select:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); /* Add a blue glow when focused */
+            box-shadow: none; /* Remove blue glow when focused */
         }
 
         /* Remove the small rounded rectangle beneath the button */
@@ -60,9 +69,9 @@
             content: '';
             display: block;
             height: 5px;
-            background-color: #e69c09; /* Dark gold color for the line */
+            background-color: #af7614; /* Dark gold color for the line */
             position: absolute; /* Position the line at the bottom of the button */
-            bottom: -5px; /* Adjust position to move the line below the button */
+            bottom: -25px; /* Adjust position to move the line below the button */
             left: 0; /* Align the line with the button's left edge */
             width: 100%; /* Make the line span the width of the button */
             border-radius: 0.25rem; /* Make the line rounded */
@@ -82,6 +91,14 @@
             background-color: #e69c09; /* Dark gold color for the progress bar */
             border-radius: 1rem; /* Make the progress bar rounded */
         }
+
+        /* Prevent white background during auto-suggestions */
+        .step input[type="text"]::-webkit-input-placeholder,
+        .step input[type="email"]::-webkit-input-placeholder,
+        .step select::-webkit-input-placeholder {
+            color: #FFF; /* Set placeholder color to white */
+            background-color: transparent; /* Set background to transparent */
+        }
     </style>
 </head>
 <body>
@@ -93,14 +110,30 @@
             <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg bg-opacity-40 backdrop-blur-lg">
                 <div class="step" data-step="1">
                     <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="Full Name" class="block w-full focus:outline-none focus:ring focus:border-blue-300">
-                    <button class="block mt-4 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="2">Next</button>
+                    <input type="text" id="name" name="name" required placeholder="Full Name" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="2">Next</button>
                 </div>
 
                 <div class="step hidden" data-step="2">
                     <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="Email" class="block w-full focus:outline-none focus:ring focus:border-blue-300">
-                    <button class="block mt-4 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="3">Next</button>
+                    <input type="email" id="email" name="email" required placeholder="Email" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="3">Next</button>
+                </div>
+
+                <div class="step hidden" data-step="3">
+                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="phonenumber">Phone number:</label>
+                    <input type="text" id="phonenumber" name="phonenumber" required placeholder="Phone number" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="4">Next</button>
+                </div>
+
+                <div class="step hidden" data-step="4">
+                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="gender">Gender:</label>
+                    <select id="gender" name="gender" required class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="5">Next</button>
                 </div>
 
                 <!-- Add more steps for other questions -->
