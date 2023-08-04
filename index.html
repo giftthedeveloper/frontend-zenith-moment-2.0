@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <!-- Link to external style.css file -->
     <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="image-container relative h-screen">
         <!-- Image element with your background image -->
@@ -16,89 +18,141 @@
 
         <div class="flex items-center justify-center min-h-screen relative z-10">
             <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg bg-opacity-40 backdrop-blur-lg">
-                <div class="step" data-step="1">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="Full Name" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="2">Next</button>
-                </div>
-
-                <div class="step hidden" data-step="2">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="Email" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="3">Next</button>
-                </div>
-
-                <div class="step hidden" data-step="3">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="phonenumber">Phone number:</label>
-                    <input type="email" id="email" name="email" required placeholder="Phone number" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="4">Next</button>
-                </div>
-
-                <div class="step hidden" data-step="4">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="gender">Gender:</label>
-                    <select id="gender" name="gender" required class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                        <option value="" disabled selected>Select your gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="5">Next</button>
-                </div>
-
-                <div class="step hidden" data-step="5">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="pickup">Pick Up:</label>
-                    <select id="pickup" name="pickup" required class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                        <option value="" disabled selected>Select a pickup point</option>
-                        <option value="pickup1">TNH Auditorium</option>
-                        <option value="pickup2">Unilag Gate</option>
-                        <option value="pickup3">I'll come on my own</option>
-                    </select>
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="6">Next</button>
-                </div>
-
-                <div class="step hidden" data-step="6">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="pickup">Ariival Date:</label>
-                    <select id="pickup" name="pickup" required class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                        <option value="" disabled selected>Select your preffered arrival date</option>
-                        <option value="pickup1">Thursday</option>
-                        <option value="pickup2">Friday</option>
-                        <option value="pickup2">Saturday</option>
-                        <!-- <option value="pickup3">Pickup Point 3</option> -->
-                    </select>
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="7">Proceed to Pay</button>
-                </div>
-                <div class="step hidden" data-step="7">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="cardNumber">Card Number:</label>
-                    <input type="text" id="cardNumber" name="cardNumber" required placeholder="Card Number" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="expirationDate">Expiration Date:</label>
-                    <input type="text" id="expirationDate" name="expirationDate" required placeholder="Expiration Date (MM/YY)" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="cvv">CVV:</label>
-                    <input type="text" id="cvv" name="cvv" required placeholder="CVV" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="amount">Amount:</label>
-                    <input type="text" id="amount" name="amount" value="N500" readonly class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="8">Submit Payment</button>
-                </div>
-                
-                <div class="step hidden" data-step="8">
-                    <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="expectations">What are your expectations ?</label>
-                    <input type="email" id="email" name="email" required placeholder="What are your expectations ?" class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                    <button class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-next="9">Submit</button>
-                </div>
-                <div class="step hidden" data-step="9">
-                    <div class="text-center">
-                        <h2 class="text-2xl font-semibold mb-4">Registration Successful!</h2>
-                        <p class="text-lg">Thank you for registering for Zenith Moment 2.0.</p>
+                <form id="registrationForm" class="form">
+                    <div class="step" data-step="0">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Full Name"
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                        <div id="nameError" class="text-red-500 hidden error-message">Please enter your full name.</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="1">Next</button>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Add more steps for other questions -->
 
-                <!-- The updated progress bar -->
-                <div class="progress-bar">
-                    <div class="progress" style="width: 0;"></div>
-                </div>
+                    <div class="step hidden" data-step="1">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Email"
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                        <div id="emailError" class="text-red-500 hidden error-message">Please enter a valid email address.</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="2">Next</button>
+                        </div>
+                    </div>
+                    
+                    <div class="step hidden" data-step="2">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="phonenumber">Phonenumber:</label>
+                        <input type="text" id="phonenumber" name="phonenumber" required placeholder="Phone number"
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                        <div id="phonenumberError" class="text-red-500 hidden error-message">Please enter a valid Phone number.</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="3">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" data-step="3">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="gender">Gender:</label>
+                        <select id="gender" name="gender" required
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                            <option value="" disabled selected>Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <div id="genderError" class="text-red-500 hidden error-message">Please select your gender.</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="4">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" data-step="4">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="pickup">Pick Up:</label>
+                        <select id="pickup" name="pickup" required
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                            <option value="" disabled selected>Select a pickup point</option>
+                            <option value="pickup1">TNH Auditorium</option>
+                            <option value="pickup2">Unilag Gate</option>
+                            <option value="pickup3">I'll come on my own</option>
+                        </select>
+                        <div id="pickupError" class="text-red-500 hidden error-message">Please select a pickup point.</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="5">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" data-step="5">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="arrival">Arrival Date:</label>
+                        <select id="arrival" name="arrival" required
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                            <option value="" disabled selected>Select your preferred arrival date</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                        </select>
+                        <div id="arrivalError" class="text-red-500 hidden error-message">Please select your arrival date.</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="6">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" data-step="6">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="volunteer">Volunteer :</label>
+                        <select id="volunteer" name="volunteer" required
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                            <option value="" disabled selected>Would you like to be a Volunteer ?</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                        <div id="volunteerError" class="text-red-500 hidden error-message">Please select an option</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="7">Next</button>
+                        </div>
+                    </div>
+                    
+                    <!-- New step for department selection -->
+                    <div class="step hidden" data-step="7">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="department">Department:</label>
+                        <select id="department" name="department" required
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                            <option value="" disabled selected>Select a department</option>
+                            <option value="music">Music</option>
+                            <option value="protocol">Protocol</option>
+                            <!-- Add more options for different departments -->
+                        </select>
+                        <div id="departmentError" class="text-red-500 hidden error-message">Please select a department.</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="8">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step hidden" data-step="8">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="expectations">What are your
+                            expectations ?</label>
+                        <input type="text" id="expectations" name="expectations" required
+                            placeholder="What are your expectations ?"
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                        <div class="step-buttons">
+                            <button type="submit" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70">Submit</button>
+                        </div>
+                    </div>
+
+                    <!-- Add more steps for other questions -->
+
+                    <!-- The updated progress bar -->
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0;"></div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

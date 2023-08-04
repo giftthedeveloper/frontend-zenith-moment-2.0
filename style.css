@@ -123,3 +123,9 @@
     color: #FFF; /* Set text color to white */
     padding: 0.5rem;
 }
+
+/* Additional CSS to target input[type="tel"] and remove background-color */
+.step input[type="tel"] {
+    background-color: transparent; /* Transparent background for phone number input */
+}
+
