@@ -42,18 +42,18 @@
                                 data-action="next" data-next="2">Next</button>
                         </div>
                     </div>
-                    
+
                     <div class="step hidden" data-step="2">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="phonenumber">Phonenumber:</label>
                         <input type="text" id="phonenumber" name="phonenumber" required placeholder="Phone number"
-                          data-error-message="phonenumberError"
-                          class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                            data-error-message="phonenumberError"
+                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                         <div id="phonenumberError" class="text-red-500 hidden error-message">Please enter a valid Phone number.</div>
                         <div class="step-buttons">
-                          <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
-                            data-action="next" data-next="3">Next</button>
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="3">Next</button>
                         </div>
-                      </div>
+                    </div>
 
                     <div class="step hidden" data-step="3">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="gender">Gender:</label>
@@ -120,7 +120,7 @@
                                 data-action="next" data-next="7">Next</button>
                         </div>
                     </div>
-                    
+
                     <div class="step hidden" data-step="7">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="department">Department:</label>
                         <select id="department" name="department" required
@@ -137,17 +137,44 @@
                                 data-action="next" data-next="8">Next</button>
                         </div>
                     </div>
+<div class="step hidden" data-step="8">
+  <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="expectations">What are your
+    expectations ?</label>
+  <input type="text" id="expectations" name="expectations" required data-error-message="expectationsError"
+    placeholder="What are your expectations ?"
+    class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+  <div id="expectationsError" class="text-red-500 hidden error-message">Please enter your expectations.</div>
+  <div class="step-buttons">
+    <button type="button"
+      class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70" data-action="submit">Submit</button>
+  </div>
+</div>
 
-                    <div class="step hidden" data-step="8">
-                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="expectations">What are your
-                            expectations ?</label>
-                        <input type="text" id="expectations" name="expectations" required
-                            data-error-message="expectationsError"
-                            placeholder="What are your expectations ?"
-                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
-                        <div id="expectationsError" class="text-red-500 hidden error-message">Please enter your expectations.</div>
+
+                    <div class="step hidden" data-step="9">
+                        <div class="text-center">
+                            <h2 class="text-2xl font-semibold mb-4">Registration Successful !</h2>
+                            <p class="text-lg"> Here's a link to the zenith moment whatsapp grou
+                            </p>
+                            <span>https://chat.whatsapp.com/GIOtV6bhsEhCqeml3M3ZXM</span>
+
+                        </div>
+                        <!-- <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="reset">Register Again</button>
+                        </div> -->
+                    </div>
+
+                    <div class="step hidden" data-step="10">
+                        <div class="text-center">
+                            <h2 class="text-2xl font-semibold mb-4">Registration Unsuccessful !</h2>
+                            <p class="text-lg">AN error occured while trying to submit the form. please register again
+                            </p>
+
+                        </div>
                         <div class="step-buttons">
-                            <button type="submit" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70">Submit</button>
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="reset">Register Again</button>
                         </div>
                     </div>
 

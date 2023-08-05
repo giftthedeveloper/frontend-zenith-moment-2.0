@@ -18,17 +18,30 @@ function hideErrors() {
   errors.forEach(error => error.classList.add('hidden'));
 }
 
-// Function to check if all required fields in the current step are filled
+// Function to check if all required fields in the current step are filled and valid
 function validateStep(step) {
   const inputs = step.querySelectorAll('input, select');
   let isValid = true;
+
   inputs.forEach(input => {
     if (input.hasAttribute('required') && input.value.trim() === '') {
       const errorMessageId = input.getAttribute('data-error-message');
       showError(errorMessageId);
       isValid = false;
     }
+
+    if (input.id === 'phonenumber') {
+      const phoneNumberValue = input.value.trim();
+      const phoneNumberRegex = /^\d{10}$/; // Regular expression to match exactly 10 digits
+
+      if (phoneNumberValue === '' || !phoneNumberRegex.test(phoneNumberValue)) {
+        const errorMessageId = input.getAttribute('data-error-message');
+        showError(errorMessageId);
+        isValid = false;
+      }
+    }
   });
+
   return isValid;
 }
 
@@ -45,27 +58,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const steps = document.querySelectorAll('.step');
 
   // Function to send the form data to the API endpoint
+ // Function to send the form data to the API endpoint
   function submitForm(data) {
-    fetch('http://127.0.0.1:3000/users/user', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
+  fetch('http://127.0.0.1:3000/users/user', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
     .then(response => {
-      if (response.ok) {
-        alert('Form submitted successfully!');
-        // You can add additional actions or redirection after successful form submission
+      if (response.status === 201) {
+        // Show the "Thank You" step after successful form submission
+        showStep(9);
       } else {
-        alert('Error submitting the form. Please try again later.');
+        // If the response status is not 201, show the "Registration Unsuccessful" step
+        showStep(10);
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error submitting the form. Please try again later.');
+      // If there's an error, show the "Registration Unsuccessful" step
+      showStep(10);
     });
-  }
+}
+
 
   // Add event listener for the 'Next' button in each step
   steps.forEach((step, index) => {
@@ -134,4 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitForm(formData);
   }
+
+  // Function to reset the form and show the first step again
+  function resetForm() {
+    const form = document.getElementById('registrationForm');
+    form.reset();
+    showStep(0); // Show the first step
+  }
+
+  // Add event listener for the "Register Again" button in the "Thank You" step
+  const registerAgainButton = document.querySelector('[data-action="reset"]');
+  registerAgainButton.addEventListener('click', () => {
+    resetForm();
+  });
 });
