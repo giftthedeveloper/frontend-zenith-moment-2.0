@@ -18,6 +18,20 @@ function hideErrors() {
   errors.forEach(error => error.classList.add('hidden'));
 }
 
+// Function to check if all required fields in the current step are filled
+function validateStep(step) {
+  const inputs = step.querySelectorAll('input, select');
+  let isValid = true;
+  inputs.forEach(input => {
+    if (input.hasAttribute('required') && input.value.trim() === '') {
+      const errorMessageId = input.getAttribute('data-error-message');
+      showError(errorMessageId);
+      isValid = false;
+    }
+  });
+  return isValid;
+}
+
 // Function to update the progress bar
 function updateProgressBar(currentStep) {
   const totalSteps = document.querySelectorAll('.step').length;
@@ -38,6 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
         hideErrors();
         const currentStep = parseInt(step.dataset.step); // Parse as an integer
         const nextStep = parseInt(nextButton.dataset.next); // Parse as an integer
+
+        // Validate the current step before proceeding to the next step
+        if (!validateStep(step)) {
+          return; // Stop the function here if validation fails
+        }
 
         if (index === steps.length - 1) {
           // If on the last step, submit the form

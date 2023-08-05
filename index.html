@@ -22,6 +22,7 @@
                     <div class="step" data-step="0">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="name">Full Name:</label>
                         <input type="text" id="name" name="name" required placeholder="Full Name"
+                            data-error-message="nameError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                         <div id="nameError" class="text-red-500 hidden error-message">Please enter your full name.</div>
                         <div class="step-buttons">
@@ -33,6 +34,7 @@
                     <div class="step hidden" data-step="1">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="email">Email:</label>
                         <input type="email" id="email" name="email" required placeholder="Email"
+                            data-error-message="emailError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                         <div id="emailError" class="text-red-500 hidden error-message">Please enter a valid email address.</div>
                         <div class="step-buttons">
@@ -44,17 +46,19 @@
                     <div class="step hidden" data-step="2">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="phonenumber">Phonenumber:</label>
                         <input type="text" id="phonenumber" name="phonenumber" required placeholder="Phone number"
-                            class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                          data-error-message="phonenumberError"
+                          class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                         <div id="phonenumberError" class="text-red-500 hidden error-message">Please enter a valid Phone number.</div>
                         <div class="step-buttons">
-                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
-                                data-action="next" data-next="3">Next</button>
+                          <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                            data-action="next" data-next="3">Next</button>
                         </div>
-                    </div>
+                      </div>
 
                     <div class="step hidden" data-step="3">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="gender">Gender:</label>
                         <select id="gender" name="gender" required
+                            data-error-message="genderError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                             <option value="" disabled selected>Select your gender</option>
                             <option value="male">Male</option>
@@ -70,6 +74,7 @@
                     <div class="step hidden" data-step="4">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="pickup">Pick Up:</label>
                         <select id="pickup" name="pickup" required
+                            data-error-message="pickupError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                             <option value="" disabled selected>Select a pickup point</option>
                             <option value="pickup1">TNH Auditorium</option>
@@ -86,6 +91,7 @@
                     <div class="step hidden" data-step="5">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="arrival">Arrival Date:</label>
                         <select id="arrival" name="arrival" required
+                            data-error-message="arrivalError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                             <option value="" disabled selected>Select your preferred arrival date</option>
                             <option value="Thursday">Thursday</option>
@@ -102,6 +108,7 @@
                     <div class="step hidden" data-step="6">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="volunteer">Volunteer :</label>
                         <select id="volunteer" name="volunteer" required
+                            data-error-message="volunteerError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                             <option value="" disabled selected>Would you like to be a Volunteer ?</option>
                             <option value="Yes">Yes</option>
@@ -114,10 +121,10 @@
                         </div>
                     </div>
                     
-                    <!-- New step for department selection -->
                     <div class="step hidden" data-step="7">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="department">Department:</label>
                         <select id="department" name="department" required
+                            data-error-message="departmentError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                             <option value="" disabled selected>Select a department</option>
                             <option value="music">Music</option>
@@ -135,14 +142,14 @@
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="expectations">What are your
                             expectations ?</label>
                         <input type="text" id="expectations" name="expectations" required
+                            data-error-message="expectationsError"
                             placeholder="What are your expectations ?"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                        <div id="expectationsError" class="text-red-500 hidden error-message">Please enter your expectations.</div>
                         <div class="step-buttons">
                             <button type="submit" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70">Submit</button>
                         </div>
                     </div>
-
-                    <!-- Add more steps for other questions -->
 
                     <!-- The updated progress bar -->
                     <div class="progress-bar">
