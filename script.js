@@ -44,6 +44,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('registrationForm');
   const steps = document.querySelectorAll('.step');
 
+  // Function to send the form data to the API endpoint
+  function submitForm(data) {
+    fetch('http://127.0.0.1:3000/users/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('Form submitted successfully!');
+        // You can add additional actions or redirection after successful form submission
+      } else {
+        alert('Error submitting the form. Please try again later.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Error submitting the form. Please try again later.');
+    });
+  }
+
   // Add event listener for the 'Next' button in each step
   steps.forEach((step, index) => {
     const nextButtons = step.querySelectorAll('[data-action="next"]');
@@ -60,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (index === steps.length - 1) {
           // If on the last step, submit the form
-          form.submit();
+          handleFormSubmit();
         } else {
           if (currentStep === 6) {
             // Special handling for step 6 (Volunteer)
@@ -88,4 +111,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // Add event listener for the form submit button
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.addEventListener('click', event => {
+    event.preventDefault();
+    handleFormSubmit();
+  });
+
+  // Function to handle form submission
+  function handleFormSubmit() {
+    const formData = {
+      fullName: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phonenumber: document.getElementById('phonenumber').value,
+      gender: document.getElementById('gender').value,
+      pickup_point: document.getElementById('pickup').value,
+      expected_arrival_date: document.getElementById('arrival').value,
+      is_volunteer: document.getElementById('volunteer').value === 'Yes',
+      expectations: document.getElementById('expectations').value,
+    };
+
+    submitForm(formData);
+  }
 });
