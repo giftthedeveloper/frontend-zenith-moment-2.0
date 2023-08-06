@@ -1,48 +1,48 @@
-// Function to show a step by its data-step value
-function showStep(stepNumber) {
-  const steps = document.querySelectorAll('.step');
-  steps.forEach(step => step.classList.add('hidden'));
-  document.querySelector(`[data-step="${stepNumber}"]`).classList.remove('hidden');
-  updateProgressBar(stepNumber);
-}
-
-// Function to show error message for a specific input field
-function showError(errorId) {
-  const errorDiv = document.getElementById(errorId);
-  errorDiv.classList.remove('hidden');
-}
-
-// Function to hide all error messages
-function hideErrors() {
-  const errors = document.querySelectorAll('.error-message');
-  errors.forEach(error => error.classList.add('hidden'));
-}
-
-// Function to check if all required fields in the current step are filled
-function validateStep(step) {
-  const inputs = step.querySelectorAll('input, select');
-  let isValid = true;
-  inputs.forEach(input => {
-    if (input.hasAttribute('required') && input.value.trim() === '') {
-      const errorMessageId = input.getAttribute('data-error-message');
-      showError(errorMessageId);
-      isValid = false;
-    }
-  });
-  return isValid;
-}
-
-// Function to update the progress bar
-function updateProgressBar(currentStep) {
-  const totalSteps = document.querySelectorAll('.step').length;
-  const progressPercentage = ((currentStep + 1) / totalSteps) * 100;
-  const progressBar = document.querySelector('.progress');
-  progressBar.style.width = `${progressPercentage}%`;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('registrationForm');
   const steps = document.querySelectorAll('.step');
+
+  // Function to show a step by its data-step value
+  function showStep(stepNumber) {
+    const steps = document.querySelectorAll('.step');
+    steps.forEach(step => step.classList.add('hidden'));
+    document.querySelector(`[data-step="${stepNumber}"]`).classList.remove('hidden');
+    updateProgressBar(stepNumber);
+  }
+
+  // Function to show error message for a specific input field
+  function showError(errorId) {
+    const errorDiv = document.getElementById(errorId);
+    errorDiv.classList.remove('hidden');
+  }
+
+  // Function to hide all error messages
+  function hideErrors() {
+    const errors = document.querySelectorAll('.error-message');
+    errors.forEach(error => error.classList.add('hidden'));
+  }
+
+  // Function to check if all required fields in the current step are filled
+  function validateStep(step) {
+    const inputs = step.querySelectorAll('input, select');
+    let isValid = true;
+    inputs.forEach(input => {
+      if (input.hasAttribute('required') && input.value.trim() === '') {
+        const errorMessageId = input.getAttribute('data-error-message');
+        showError(errorMessageId);
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
+
+  // Function to update the progress bar
+  function updateProgressBar(currentStep) {
+    const totalSteps = document.querySelectorAll('.step').length;
+    const progressPercentage = ((currentStep + 1) / totalSteps) * 100;
+    const progressBar = document.querySelector('.progress');
+    progressBar.style.width = `${progressPercentage}%`;
+  }
 
   // Function to send the form data to the API endpoint
   function submitForm(data) {
@@ -55,15 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(response => {
       if (response.ok) {
-        alert('Form submitted successfully!');
-        // You can add additional actions or redirection after successful form submission
+        showStep('success'); // Show success step
       } else {
-        alert('Error submitting the form. Please try again later.');
+        showStep('error'); // Show error step
       }
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Error submitting the form. Please try again later.');
+      showStep('error'); // Show error step
     });
   }
 
@@ -129,9 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
       pickup_point: document.getElementById('pickup').value,
       expected_arrival_date: document.getElementById('arrival').value,
       is_volunteer: document.getElementById('volunteer').value === 'Yes',
+      referral_code: document.getElementById('referral_code').value,
       expectations: document.getElementById('expectations').value,
     };
 
+    // Send the form data to the API endpoint using fetch
     submitForm(formData);
   }
 });
