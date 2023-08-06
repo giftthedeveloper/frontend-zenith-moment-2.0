@@ -127,8 +127,14 @@
                             data-error-message="departmentError"
                             class="block w-full focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
                             <option value="" disabled selected>Select a department</option>
-                            <option value="music">Music</option>
+                            <option value="music">Media</option>
                             <option value="protocol">Protocol</option>
+                            <option value="protocol">Medicals</option>
+                            <option value="protocol">Publicity</option>
+                            <option value="protocol">Ushering</option>
+                            <option value="protocol">Welfare</option>
+                            <option value="protocol">Logistics</option>
+                            <option value="protocol">Followup</option>
                             <!-- Add more options for different departments -->
                         </select>
                         <div id="departmentError" class="text-red-500 hidden error-message">Please select a department.</div>
@@ -137,8 +143,20 @@
                                 data-action="next" data-next="8">Next</button>
                         </div>
                     </div>
-
                     <div class="step hidden" data-step="8">
+                        <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="referral_code">Referral Code:</label>
+                        <input type="text" id="referral_code" name="referral_code" required placeholder="Referral Code"
+                            data-error-message="referral_codeError"
+                            class="block w-full bg-transparent text-white focus:outline-none focus:border-transparent focus:ring focus:border-blue-300">
+                        <div id="referral_codeError" class="text-red-500 hidden error-message">Please enter a valid Referral Code</div>
+                        <div class="step-buttons">
+                            <button type="button" class="block mt-8 w-full py-2 text-white font-semibold rounded-lg hover:bg-opacity-70"
+                                data-action="next" data-next="9">Next</button>
+                        </div>
+                    </div>
+                    
+
+                    <div class="step hidden" data-step="9">
                         <label class="block mb-2 bg-opacity-60 backdrop-blur-lg sr-only" for="expectations">What are your
                             expectations ?</label>
                         <input type="text" id="expectations" name="expectations" required

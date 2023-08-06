@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to send the form data to the API endpoint
   function submitForm(data) {
-    fetch('https://api-zenithmoment.onrender.com/users/user', {
+    fetch('http://127.0.0.1:3000/users/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
