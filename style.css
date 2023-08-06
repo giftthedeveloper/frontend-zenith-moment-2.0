@@ -45,6 +45,21 @@
 .step.hidden[data-step="9"] h2 {
     color: #af7614;
 }
+/* Add this CSS to center the donation text and reduce its visibility */
+/* Updated CSS to center the donation text and reduce its visibility */
+.donation-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5; /* You can adjust the opacity value as desired (0.1 to 1.0) */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    color: #af7614;
+}
+
 p {
     color: #af7614;
 }

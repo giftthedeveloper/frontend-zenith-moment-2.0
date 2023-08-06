@@ -53,18 +53,25 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       body: JSON.stringify(data),
     })
-    .then(response => {
-      if (response.ok) {
-        showStep('success'); // Show success step
-      } else {
+      .then(response => {
+        if (response.ok) {
+          const volunteerSelection = document.getElementById('volunteer').value;
+          console.log('Volunteer Selection:', volunteerSelection);
+          if ( volunteerSelection == 'Yes') {
+            showStep('worker'); // Show worker step for volunteers
+          } else {
+            showStep('success'); // Show success step for non-volunteers
+          }
+        } else {
+          showStep('error'); // Show error step
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
         showStep('error'); // Show error step
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      showStep('error'); // Show error step
-    });
+      });
   }
+  
 
   // Add event listener for the 'Next' button in each step
   steps.forEach((step, index) => {
@@ -115,9 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitButton = form.querySelector('button[type="submit"]');
   submitButton.addEventListener('click', event => {
     event.preventDefault();
+    console.log('Form submitted');
     handleFormSubmit();
   });
-
   // Function to handle form submission
   function handleFormSubmit() {
     const formData = {
