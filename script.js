@@ -137,9 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
       email: document.getElementById('email').value,
       phonenumber: document.getElementById('phonenumber').value,
       gender: document.getElementById('gender').value,
-      pickup_point: document.getElementById('pickup').value,
+      pickup_point: getSelectedText('pickup'), 
       expected_arrival_date: document.getElementById('arrival').value,
       is_volunteer: document.getElementById('volunteer').value === 'Yes',
+      department: document.getElementById('department').value, // Include the selected department
       referral_code: document.getElementById('referral_code').value,
       expectations: document.getElementById('expectations').value,
     };
@@ -148,3 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
     submitForm(formData);
   }
 });
+
+function getSelectedText(elementId) {
+  const dropdown = document.getElementById(elementId);
+  return dropdown.options[dropdown.selectedIndex].text;
+}
