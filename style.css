@@ -57,6 +57,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
+    color: #f0f0f0;
    
 }
 .off-white-text {
