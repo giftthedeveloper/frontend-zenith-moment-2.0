@@ -119,11 +119,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Add event listener for the form submit button
-  const submitButton = form.querySelector('button[type="submit"]');
+// Add event listener for the form submit button
+  const submitButton = form.querySelector('#submitButton'); // Use the ID you added above
   submitButton.addEventListener('click', event => {
-    event.preventDefault();
-    console.log('Form submitted');
-    handleFormSubmit();
+  event.preventDefault();
+  console.log('Form submitted');
+  
+  // Disable the submit button to prevent further clicks
+  submitButton.classList.add('disabled');
+  
+  handleFormSubmit();
   });
   // Function to handle form submission
   function handleFormSubmit() {
