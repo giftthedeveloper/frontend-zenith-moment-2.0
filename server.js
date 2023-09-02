@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000
+const port = 5500
 
 app.use(express.static(__dirname));
 
@@ -12,13 +12,13 @@ app.get('/testimonies', (req, res) => {
     res.sendFile(__dirname + '/testimonies.html');
 });
 
-app.get('/events', (req, res) => {
-    res.sendFile(__dirname + '/events.html');
-});
+// app.get('/events', (req, res) => {
+//     res.sendFile(__dirname + '/events.html');
+// });
 
-app.get('/feedback', (req, res) => {
-    res.sendFile(__dirname + '/feedback.html');
-});
+// app.get('/feedback', (req, res) => {
+//     res.sendFile(__dirname + '/feedback.html');
+// });
 
 app.listen(port, () => {
     console.log(`app is running at port ${port}`)
