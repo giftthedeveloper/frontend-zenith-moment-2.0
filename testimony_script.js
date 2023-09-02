@@ -6,7 +6,7 @@ const testimonyForm = document.getElementById('testimonyForm');
 
 // Fetch testimonies from the API
 async function fetchTestimoniesFromApi() {
-    const url = 'http://127.0.0.1:3000/testimony';
+    const url = 'https://api-zenithmoment.onrender.com/testimony/';
     const response = await fetch(url);
     const data = await response.json();
     
@@ -17,7 +17,7 @@ async function fetchTestimoniesFromApi() {
 
 // Function to add a new testimony
 async function addTestimony(name, comment, eventYear, isAnonymous) {
-    const url = 'http://127.0.0.1:3000/testimony/create';
+    const url = 'https://api-zenithmoment.onrender.com/testimony/create';
     const data = {
         name: name,
         testimony: comment,
