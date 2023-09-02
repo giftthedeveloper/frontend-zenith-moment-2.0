@@ -12,13 +12,13 @@ app.get('/testimonies', (req, res) => {
     res.sendFile(__dirname + '/testimonies.html');
 });
 
-app.get('/events', (req, res) => {
-    res.sendFile(__dirname + '/events.html');
-});
+// app.get('/events', (req, res) => {
+//     res.sendFile(__dirname + '/events.html');
+// });
 
-app.get('/feedback', (req, res) => {
-    res.sendFile(__dirname + '/feedback.html');
-});
+// app.get('/feedback', (req, res) => {
+//     res.sendFile(__dirname + '/feedback.html');
+// });
 
 app.listen(port, () => {
     console.log(`app is running at port ${port}`)
