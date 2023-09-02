@@ -87,8 +87,8 @@ window.onload = async () => {
         const card = document.createElement('div');
         card.className = 'bg-white rounded-lg shadow-md p-4';
         card.innerHTML = `
-        <h2 class="text-lg font-semibold" style="color: #d0992e;">${testimony.display_name}</h2>
-        <p style="color: #29303a;"> ${testimony.testimony}</p>
+        <h2 class="text-lg font-semibold" style="color: #f2cd14ec;">${testimony.display_name}</h2>
+        <p style="color: #fff;"> ${testimony.testimony}</p>
         <p style="color: #a8a9ad; opacity: 1.0;">${testimony.event_edition}</p>
     `;
         testimoniesList.appendChild(card);
