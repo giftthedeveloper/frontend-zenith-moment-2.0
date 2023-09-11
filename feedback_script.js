@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     
         // Send data to the API (modify the URL as needed)
-        fetch("http://127.0.0.1:3000/feedback/create", {
+        fetch("https://api-zenithmoment.onrender.com/feedback/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
