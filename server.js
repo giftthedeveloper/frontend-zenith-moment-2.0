@@ -5,7 +5,7 @@ const port = 5500
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/sub_index.html');
 });
 
 app.get('/testimonies', (req, res) => {
@@ -16,9 +16,9 @@ app.get('/testimonies', (req, res) => {
 //     res.sendFile(__dirname + '/events.html');
 // });
 
-// app.get('/feedback', (req, res) => {
-//     res.sendFile(__dirname + '/feedback.html');
-// });
+app.get('/feedback', (req, res) => {
+    res.sendFile(__dirname + '/feedbackform.html');
+});
 
 app.listen(port, () => {
     console.log(`app is running at port ${port}`)

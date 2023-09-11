@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Moment 2.0 Feedback Form</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Link to external style.css file -->
+    <link href="style.css" rel="stylesheet">
+    <style>
+        /* Add this style to style.css or your inline <style> tag */
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            border: none; /* Remove the border */
+            background: none; /* Remove the background */
+            border-bottom: 1px solid #f0e9e9; /* Add a bottom border with your desired color */
+            outline: none; /* Remove the outline when focused */
+        }
+        .thankYouMessage {
+            display: block;
+            }
+        .bg-popup-background {
+            background-image: url('form_bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(255, 255, 255, 0.9); /* You can adjust the background color opacity as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="relative">
+        <img src="form_bg.jpeg" alt="Background Image" class="absolute inset-0 z-0 w-full h-full object-cover">
+        <div class="w-full max-w-md mx-auto">
+
+            <h2 class="text-2xl text-white-800 mb-4">Feedback Form</h2>
+                <div class="container">
+                    <form class="bg-opacity-40 backdrop-blur-md bg-white shadow-md rounded px-8 pt-6 pb-8 relative z-10">
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm text-white text-lg">Name</label>
+                        <input id="name" type="text" class="w-full py-2 px-3 text-yellow-400" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="gender" class="block text-sm text-white text-lg">Gender</label>
+                        <select id="gender" class="w-full py-2 px-3 text-yellow-400">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm text-white text-lg">Email Address</label>
+                        <input id="email" type="text" class="w-full py-2 px-3 text-yellow-400" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="accomodating_rating" class="block text-sm text-white text-lg">Rate Accommodation provision (out of 5)</label>
+                        <input id="accomodating_rating" type="number" class="w-full py-2 px-3 text-yellow-400" min="1" max="5" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="spirituality_rating" class="block text-sm text-white text-lg">Rate Spirituality (out of 5)</label>
+                        <input id="spirituality_rating" type="number" class="w-full py-2 px-3 text-yellow-400" min="1" max="5" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="coordination_rating" class="block text-sm text-white text-lg">Rate Event Coordination (out of 5)</label>
+                        <input id="coordination_rating" type="number" class="w-full py-2 px-3 text-yellow-400" min="1" max="5" />
+                    </div>
+                    <div class="mb-4">
+                    <label for="highlight_moment" class="block text-sm text-white text-lg">Your Highlight moment(s)</label>
+                    <textarea id="highlight_moment" rows="4" class="w-full py-2 px-3 text-yellow-400"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="recommendation_or_suggestion" class="block text-sm text-white text-lg">Recommendation or Suggestion</label>
+                        <textarea id="recommendation_or_suggestion" rows="4" class="w-full py-2 px-3 text-yellow-400"></textarea>
+                    </div>
+
+                    <button id="submitBtn" type="submit" class="w-full bg-opacity-50 text-yellow-400 py-2 px-4 rounded hover:bg-white">Submit</button>           
+                    </form>
+                    </div>
+                    <div id="popup" class="fixed inset-0 flex items-center justify-center hidden bg-popup-background">
+                        <div class="bg-white p-6 rounded shadow-md text-center">
+                            <p class="text-lg text-gray-800">Form sucessfully submitted. Thank you for your feedback!</p>
+                        </div>
+                    </div>
+                    <div id="errorPopup" class="fixed inset-0 flex items-center justify-center hidden bg-popup-background">
+                        <div class="bg-white p-6 rounded shadow-md text-center">
+                            <p class="text-lg text-gray-500">Error submitting feedback. This email address has already filled a form</p>
+                        </div>
+                    </div>
+                    
+                                       
+                </div>
+            </div>
+        </div>
+        <div id="thankYouMessage" class="hidden text-white text-lg text-center mt-4">Thank you for your feedback!</div>
+
+    </div>
+
+</body>
+<script src="feedback_script.js"></script>
+
+
+</html>
