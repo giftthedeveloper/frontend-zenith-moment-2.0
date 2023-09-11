@@ -5,7 +5,7 @@ const port = 5500
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/sub_index.html');
 });
 
 app.get('/testimonies', (req, res) => {
